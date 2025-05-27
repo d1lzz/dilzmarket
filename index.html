@@ -36,8 +36,9 @@
       }
     }
 
+    /* Loader pedang tertancap */
     .loader {
-      display: none;
+      display: none; /* default hidden */
       position: fixed;
       z-index: 999;
       width: 100%;
@@ -47,6 +48,81 @@
       align-items: center;
       color: #fff;
       font-size: 24px;
+    }
+
+    /* Loader pedang container */
+    .loader .loader-sword {
+      position: relative;
+      width: 60px;
+      height: 150px;
+    }
+
+    /* Gagang pedang */
+    .loader .handle {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 12px;
+      height: 60px;
+      background: linear-gradient(135deg, #654321, #3b1f0b);
+      border-radius: 4px;
+      box-shadow: 0 0 8px #8b4513;
+    }
+
+    /* Pedang blade */
+    .loader .blade {
+      position: absolute;
+      bottom: 60px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 12px;
+      height: 80px;
+      background: linear-gradient(180deg, #ccc, #eee);
+      border-radius: 2px;
+      box-shadow: 0 0 15px #fff;
+      animation: bladeGlow 2s ease-in-out infinite;
+    }
+
+    /* Tombol ujung pedang */
+    .loader .pommel {
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 20px;
+      height: 20px;
+      background: radial-gradient(circle, #b5651d, #4b2e05);
+      border-radius: 50%;
+      box-shadow: 0 0 8px #b5651d;
+    }
+
+    /* Kilauan pedang */
+    @keyframes bladeGlow {
+      0%, 100% {
+        box-shadow: 0 0 15px #fff;
+      }
+      50% {
+        box-shadow: 0 0 30px #aaf;
+        filter: brightness(1.3);
+      }
+    }
+
+    /* Getaran pedang tertancap */
+    @keyframes swordVibrate {
+      0%, 100% { transform: translateX(-50%) translateY(0) rotate(0deg); }
+      25% { transform: translateX(calc(-50% + 1px)) translateY(1px) rotate(1deg); }
+      50% { transform: translateX(calc(-50% - 1px)) translateY(0) rotate(-1deg); }
+      75% { transform: translateX(calc(-50% + 1px)) translateY(-1px) rotate(1deg); }
+    }
+
+    .loader .blade, 
+    .loader .handle, 
+    .loader .pommel {
+      animation-name: bladeGlow, swordVibrate;
+      animation-duration: 2s, 0.3s;
+      animation-iteration-count: infinite, infinite;
+      animation-timing-function: ease-in-out, ease-in-out;
     }
 
     .container {
@@ -162,18 +238,56 @@
       background-color: #1ebe5b;
     }
 
+    .manual-play {
+      background-color: #660000;
+      margin-top: 10px;
+    }
+
+    /* Video container styling */
+    .video-container {
+      width: 100%;
+      max-width: 420px;
+      margin: 20px auto;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+    }
+
+    .video-container video {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
   </style>
 </head>
-<body onload="playScream()">
-  <audio id="scream" autoplay>
-    <source src="eren-scream.mp3" type="audio/mpeg">
+<body>
+
+  <!-- Audio scream Eren -->
+  <audio id="scream" preload="auto">
+    <source src="ssstik.io_1745758536985.mp3" type="audio/mpeg">
     Browser kamu tidak mendukung audio.
   </audio>
 
-  <div class="loader" id="loader">Memproses...</div>
+  <div class="loader" id="loader">
+    <div class="loader-sword" aria-label="Loading pedang tertancap">
+      <div class="pommel"></div>
+      <div class="handle"></div>
+      <div class="blade"></div>
+    </div>
+  </div>
 
   <div class="container">
     <h2>Pembayaran Dilz Official</h2>
+
+    <button class="manual-play" onclick="playScreamManual()">Putar Teriakan Eren</button>
+
+    <!-- Video besar -->
+    <div class="video-container">
+      <video controls autoplay loop muted playsinline>
+        <source src="dari mu 2000 tahun yang lalu .mp4" type="video/mp4" />
+        Browser kamu tidak mendukung video.
+      </video>
+    </div>
 
     <h3>Konfirmasi Pembayaran:</h3>
     <input type="text" placeholder="Nama Anda" required />
@@ -191,15 +305,15 @@
       <button onclick="salinDana()">Salin</button>
     </div>
 
-<div class="petunjuk">
-  <h3>Cara Transfer DANA:</h3>
-  <ol>
-    <li>Buka aplikasi <b>DANA</b>.</li>
-    <li>Pilih menu <b>"Kirim"</b>.</li>
-    <li>Masukkan nomor di atas.</li>
-    <li>Pastikan atas nama: <b>SUR***</b>.</li>
-  </ol>
-</div>
+    <div class="petunjuk">
+      <h3>Cara Transfer DANA:</h3>
+      <ol>
+        <li>Buka aplikasi <b>DANA</b>.</li>
+        <li>Pilih menu <b>"Kirim"</b>.</li>
+        <li>Masukkan nomor di atas.</li>
+        <li>Pastikan atas nama: <b>SUR***</b>.</li>
+      </ol>
+    </div>
 
     <h3>Nomor GoPay:</h3>
     <div class="dana-row">
@@ -207,15 +321,15 @@
       <button onclick="salinGopay()">Salin</button>
     </div>
 
-<div class="petunjuk">
-  <h3>Cara Transfer GoPay:</h3>
-  <ol>
-    <li>Buka aplikasi <b>GoPay</b> atau <b>Gojek</b>.</li>
-    <li>Pilih menu <b>"Bayar" atau "Kirim"</b>.</li>
-    <li>Masukkan nomor di atas.</li>
-    <li>Pastikan atas nama: <b>SUR***</b>.</li>
-  </ol>
-</div>
+    <div class="petunjuk">
+      <h3>Cara Transfer GoPay:</h3>
+      <ol>
+        <li>Buka aplikasi <b>GoPay</b> atau <b>Gojek</b>.</li>
+        <li>Pilih menu <b>"Bayar" atau "Kirim"</b>.</li>
+        <li>Masukkan nomor di atas.</li>
+        <li>Pastikan atas nama: <b>SUR***</b>.</li>
+      </ol>
+    </div>
 
     <div class="qris-box">
       <h3>Via QRIS (All PAYMENT):</h3>
@@ -223,16 +337,8 @@
     </div>
 
     <div class="petunjuk">
-      <h3>Cara Transfer:</h3>
-      <ol>
-        <li>Buka aplikasi DANA / GoPay / ShopeePay / lainnya.</li>
-        <li>Scan QRIS atau kirim ke nomor di atas.</li>
-        <li>Masukkan nominal.</li>
-        <li>Upload bukti atau kirim via WhatsApp.</li>
-      </ol>
-    </div>
-  </div>
-
+      <h3>HARAP JANGAN TRANSFER VIA QRIS KARENA SEDANG EROR:</h3>
+     
   <script>
     function salinDana() {
       const nomor = document.getElementById("danaNumber").value;
@@ -252,8 +358,14 @@
       const scream = document.getElementById("scream");
       scream.volume = 0.6;
       scream.play().catch(() => {
-        console.log("Autoplay diblokir. Harus interaksi dulu.");
+        console.warn("Autoplay diblokir. Harus interaksi dulu.");
       });
+    }
+
+    function playScreamManual() {
+      const scream = document.getElementById("scream");
+      scream.currentTime = 0;
+      scream.play();
     }
 
     function kirimPembayaran() {
@@ -263,6 +375,8 @@
         Swal.fire("Pembayaran Terkirim!", "Silakan kirim bukti via WhatsApp.", "success");
       }, 1500);
     }
+
+    window.onload = playScream;
   </script>
 </body>
 </html>
