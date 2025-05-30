@@ -3,12 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>dari mu 2000 tahun yang lalu dan untuk mu 2000 tahun dari sekarang</title>
+  <title>darimu 2000 tahun yang lalu untuk mu 2000 tahun dari sekarang</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <style>
-    /* --- CSS sama seperti tadi --- */
-    /* (Ini aku ringkas supaya tidak terlalu panjang di sini) */
+
 
     * {
       box-sizing: border-box;
@@ -204,9 +203,13 @@
     <ul>
       <li>Panel petrodactyl- Rp 1.000-10.000 <button onclick="beliProduk('Panel petrodactyl- ', 1000)">Beli</button></li>
       <li>resseler Panel petrodactyl - Rp 7.000 <button onclick="beliProduk(' resseler Panel petrodactyl-', 7000)">Beli</button></li>
-      <li>all akses script crowninvis Rp 30.000-100.000++ <button onclick="beliProduk('all akses script crowninvis', 30000)">Beli</button></li>
+      <li>all akses script crowninvis Rp 30.000-100.000(BISA LANJUT LEBIH LENGKAP KE PM) <button onclick="beliProduk('all akses script crowninvis', 30000)">Beli</button></li>
       <li>script justin all version!  Rp 50.000 <button onclick="beliProduk('script justin', 50000)">Beli</button></li>
         <li> buyer vip script justin -  Rp 100.000 <button onclick="beliProduk('script justin', 100000)">Beli</button></li>
+     <li>jasa pembuatan wheb - Rp 15.000 <button onclick="beliProduk('jasa pembuatan wheb', 15000)">Beli</button></li>
+     <li>murid pembuatan whebsite - Rp 17.000 <button onclick="beliProduk('murid pembuatan wheb', 17000)">Beli</button></li>
+        
+        
     </ul>
   </div>
 
@@ -216,7 +219,7 @@
 
     <button class="manual-play" onclick="playScreamManual()" aria-label="Putar suara teriakan Eren">Putar Teriakan Eren</button>
 
-    <div class="video-container" aria-label="Video animasi Eren Rumbling">
+    <div class="video-container" aria-label="Video dari lu ganti di source">
       <video controls autoplay loop muted playsinline>
         <source src="dari mu 2000 tahun yang lalu .mp4" type="video/mp4" />
         Browser kamu tidak mendukung video.
@@ -232,9 +235,14 @@
     <input type="number" id="nominalTransfer" placeholder="Nominal transfer" aria-required="true" />
 
     <div class="dana-row">
-      <input type="text" id="nomorDana" placeholder="Nomor DANA" aria-required="true" />
-      <button onclick="copyNomorDana()" aria-label="Salin nomor DANA ke clipboard">Salin</button>
-    </div>
+  <a href="https://link.dana.id/minta/2w3pbf1d85v" 
+     target="_blank" 
+     rel="noopener" 
+     class="wa-button"
+     style="display: inline-block; padding: 12px 20px; background: #ff4444; color: white; border-radius: 10px; text-decoration: none; text-align: center; font-weight: bold; box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);">
+     Bayar via DANA
+  </a>
+</div>
     
      <div class="GoPay-row">
       <input type="text" id="nomorGopay" placeholder="Nomor GoPay" aria-required="true" />
@@ -249,13 +257,25 @@
         <li>Kirim bukti pembayaran melalui WhatsApp.</li>
         <li>Tunggu admin on untuk melakukan proses</li>
       </ol>
-      <a href="https://wa.me/62878886360430?text=Saya%20sudah%20transfer%20produk%20%22%22%20jumlah%20%22%22%20" 
+      <a href="https://wa.me/6287886360430?text=cek+min+dah+tefe+aku" 
          target="_blank" 
          rel="noopener" 
          class="wa-button" 
          role="button" 
          aria-label="Hubungi WhatsApp untuk konfirmasi pembayaran">
          Konfirmasi via WhatsApp
+      </a>
+    </div>
+    
+   <div class="petunjuk" aria-label="saluran testimoni">
+      <h3>saluran testimoni:</h3>
+      <a href="https://whatsapp.com/channel/0029Vb4tkRN2kNFrQkjLH63G" 
+         target="_blank" 
+         rel="noopener" 
+         class="wa-button" 
+         role="button" 
+         aria-label="Hubungi WhatsApp untuk konfirmasi pembayaran">
+         SALURAN TESTIMONI PEMBELIAN
       </a>
     </div>
 
@@ -323,25 +343,6 @@
     nominalInput.value = harga;
   }
 
-  // Fungsi salin nomor DANA bisa di ganti ama punya lu ©dilz
-  function copyNomorDana() {
-    const nomor = '088287672260';
-    navigator.clipboard.writeText(nomor).then(() => {
-      // isi input nomorDana supaya sesuai yang disalin
-      document.getElementById('nomorDana').value = nomor;
-      Swal.fire({
-        icon: 'success',
-        title: 'Berhasil',
-        text: 'Nomor DANA berhasil disalin!',
-        timer: 1500,
-        showConfirmButton: false,
-        toast: true,
-        position: 'top-end'
-      });
-    }).catch(() => {
-      alert('Gagal menyalin nomor. Silakan salin manual.');
-    });
-  }
 
  // Fungsi salin nomor GoPay bisa di ganti ama punya lu ©dilz
   function copyNomorGopay() {
