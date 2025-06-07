@@ -27,7 +27,7 @@
       padding-bottom: 50px;
       color: #fff;
     }
-    /* ... semua style loader, container, tombol, input, dll sama seperti tadi ... */
+   
 
     .loader {
       display: none;
@@ -41,7 +41,6 @@
       color: #fff;
       font-size: 24px;
     }
-    /* ... style loader pedang tertancap, animasi, dll ... */
 
     .container {
       background: #111;
@@ -191,13 +190,12 @@
     </div>
   </div>
 
-  <!-- Tombol mode -->
   <div class="mode-switch" role="tablist" aria-label="Pilih mode">
     <button onclick="showMode('produk')" id="btn-produk" role="tab" aria-selected="false" tabindex="-1">Mode Produk</button>
     <button onclick="showMode('pembayaran')" id="btn-pembayaran" role="tab" aria-selected="true" tabindex="0">Mode Pembayaran</button>
   </div>
 
-  <!-- Mode Produk -->
+
   <div id="produk" role="tabpanel" aria-labelledby="btn-produk">
     <h2>Daftar Produk</h2>
     <ul>
@@ -213,9 +211,8 @@
     </ul>
   </div>
 
-  <!-- Mode Pembayaran -->
   <div id="pembayaran" class="container" role="tabpanel" aria-labelledby="btn-pembayaran">
-    <h2>Pembayaran Dilz Official</h2>
+    <h2>Pembayaran Arsheus</h2>
 
     <button class="manual-play" onclick="playScreamManual()" aria-label="Putar suara teriakan Eren">Putar Teriakan Eren</button>
 
@@ -279,6 +276,11 @@
       </a>
     </div>
 
+
+<footer>
+  &copy;   Powered by Arsheus.
+</footer>
+
   </div>
 
 <script>
@@ -318,8 +320,7 @@
     }
   }
 
-  // Fungsi tombol beli produk
-  function beliProduk(namaProduk, harga) {
+ {
     showMode('pembayaran');
     document.getElementById('produkPembelian').value = namaProduk;
     document.getElementById('jumlahPembelian').value = 1;
@@ -334,7 +335,7 @@
     });
   }
 
-// Fungsi tombol beli produk
+
   function beliProduk(namaProduk, harga) {
     showMode('pembayaran');
     const produkInput = document.getElementById('produkPembelian');
